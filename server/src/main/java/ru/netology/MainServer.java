@@ -19,7 +19,9 @@ import java.util.concurrent.Executors;
 
 public class MainServer {
 
-    static final String CONFIG_PATH = "server/src/main/resources/config.properties";
+    public static final String ROOT_PATH = "server/src/main/";
+
+    static final String CONFIG_PATH = ROOT_PATH + "resources/config.properties";
     static final Properties property = new Properties();
     static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
 
@@ -116,7 +118,7 @@ public class MainServer {
                     }
                     inMess = inMess.trim();
                     if ("exit".equalsIgnoreCase(inMess)) {
-                        log("from: " + name + ": session end signal received");
+                        log("from: " + name + ": END-SESSION signal received");
                         deleteUser(out);
                         break;
                     }
@@ -126,6 +128,12 @@ public class MainServer {
                 }
             } catch (Exception e) {
                 log("ServerThread error: " + Arrays.toString(e.getStackTrace()));
+            } finally {
+                try {
+                    clientSocket.close(); // закрываем сокет клиента
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
@@ -144,27 +152,29 @@ public class MainServer {
                 sendMessage("You are the only user of chat. Waiting for another users... :))", out);
             }
             else {
-                sendMessage("Number of chat users: " + users.size(), out);
-
                 //сообщение о входе нового пользователя
-                send(SERVER_NAME, "We have a new user: '" + name, name);
+                send(SERVER_NAME, "LOGON user: " + name, name);
+                //всем статистика
+                send(SERVER_NAME, "Number of chat users: " + users.size());
             }
 
-            log("user " + name + " IN");
+            log("LOGON user: " + name);
         }
 
         private void deleteUser(PrintWriter out){
-            users.remove(getUserName());
+            users.remove(getUserName().toLowerCase());
+
             String response = String.format("Goodbye, %s! See you later", getUserName());
-            out.println(response);
+            sendMessage(response, out);
 
             //сообщить всем о выходе
+            response = "LOGOUT user: " + getUserName();
             send(SERVER_NAME, response);
+            log(response);
 
+            //всем статистика
             response = users.size() != 1 ? "Number of chat users: " + users.size() : "You are the only user of chat. Waiting for another users... :))";
             send(SERVER_NAME, response);
-
-            log("user " + getUserName() + " OUT");
         }
 
         private boolean isFindUser(String name){
@@ -175,7 +185,7 @@ public class MainServer {
             send(sender, message, null);
         }
 
-        private void send(String sender, String message, String excludeName) {
+        private synchronized void send(String sender, String message, String excludeName) {
             sender = sender == null ? "" : sender;
             for (Map.Entry<String, User> entry : users.entrySet()) {
                 String name = entry.getKey();
@@ -188,6 +198,7 @@ public class MainServer {
 
         private void sendMessage(String sender, String message, PrintWriter out) {
             out.println("From " + (StringUtils.isBlank(sender) ? UNKNOWN_NAME : sender + ": " + message));
+            out.flush();
         }
 
         private void sendMessage(String message, PrintWriter out) {

@@ -1,16 +1,13 @@
 package ru.netology;
 
 
-import java.io.*;
-import java.net.Socket;
-import java.nio.charset.StandardCharsets;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
-import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicBoolean;
 
-public class MainClient {
+public class MainClient1 {
 
     public static final String ROOT_PATH = "client/src/main/";
     public static String logPath;
