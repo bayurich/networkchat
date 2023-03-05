@@ -9,9 +9,9 @@ import java.util.Properties;
 
 public class MainClient1 {
 
-    public static final String ROOT_PATH = "client/src/main/";
+    public static final String ROOT_PATH = "client/";
 
-    private static final String CONFIG_PATH = ROOT_PATH + "resources/config.properties";
+    private static final String CONFIG_PATH = ROOT_PATH + "src/main/resources/config.properties";
     private static final Properties property = new Properties();
     static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
 
