@@ -10,7 +10,6 @@ import java.util.Properties;
 public class MainClient1 {
 
     public static final String ROOT_PATH = "client/src/main/";
-    public static String logPath;
 
     private static final String CONFIG_PATH = ROOT_PATH + "resources/config.properties";
     private static final Properties property = new Properties();
@@ -21,11 +20,11 @@ public class MainClient1 {
     public static void main(String[] args) {
         initProperty();
 
-        final String host = getProperty("server.host");
-        final int port = Integer.parseInt(getProperty("server.port"));
-        logPath = ROOT_PATH + getProperty("log.path");
+        String host = getProperty("server.host");
+        int port = Integer.parseInt(getProperty("server.port"));
+        String logPath = ROOT_PATH + getProperty("log.path");
 
-        new Client(host, port).start();
+        new Client(host, port, logPath).start();
     }
 
     private static void initProperty(){

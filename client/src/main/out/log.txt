@@ -1,0 +1,58 @@
+
+2023-03-05 20:45:08 Start session
+2023-03-05 20:45:08 received: From SERVER: You are successfully connect to server
+2023-03-05 20:45:08 received: From SERVER: Please write your name
+
+2023-03-05 20:59:17 Start session
+2023-03-05 20:59:17 received: From SERVER: You are successfully connect to server
+2023-03-05 20:59:17 received: From SERVER: Please write your name
+
+2023-03-05 21:03:55 Start session
+2023-03-05 21:03:55 received: From SERVER: You are successfully connect to server
+2023-03-05 21:03:55 received: From SERVER: Please write your name
+
+2023-03-05 21:19:53 Start session
+2023-03-05 21:19:53 received: From SERVER: You are successfully connect to server
+2023-03-05 21:19:53 received: From SERVER: Please write your name
+2023-03-05 21:19:59 ClientRead error: No line found
+
+2023-03-05 21:20:11 Start session
+2023-03-05 21:20:11 received: From SERVER: You are successfully connect to server
+2023-03-05 21:20:11 received: From SERVER: Please write your name
+
+2023-03-05 21:21:15 Start session
+2023-03-05 21:21:15 received: From SERVER: You are successfully connect to server
+2023-03-05 21:21:15 received: From SERVER: Please write your name
+
+2023-03-05 21:21:19 Start session
+2023-03-05 21:21:19 received: From SERVER: You are successfully connect to server
+2023-03-05 21:21:19 received: From SERVER: Please write your name
+2023-03-05 21:21:22 sent: xxxxx
+2023-03-05 21:21:22 received: From SERVER: Wellcome to chat, xxxxx!
+2023-03-05 21:21:22 received: From SERVER: Your messages will be send to all chat users
+2023-03-05 21:21:22 received: From SERVER: You are the only user of chat. Waiting for another users... :))
+2023-03-05 21:21:27 sent: eee
+2023-03-05 21:21:27 received: From SERVER: Wellcome to chat, eee!
+2023-03-05 21:21:27 received: From SERVER: Your messages will be send to all chat users
+2023-03-05 21:21:27 received: From SERVER: Number of chat users: 2
+2023-03-05 21:21:27 received: From SERVER: LOGON user: eee
+2023-03-05 21:21:27 received: From SERVER: Number of chat users: 2
+2023-03-05 21:21:31 sent: ee
+2023-03-05 21:21:31 received: From eee: ee
+2023-03-05 21:21:36 sent: dddddddddd
+2023-03-05 21:21:36 received: From xxxxx: dddddddddd
+2023-03-05 21:21:41 sent: exit
+2023-03-05 21:21:41 END-SESSION signal send
+2023-03-05 21:21:41 received: From SERVER: LOGOUT user: eee
+2023-03-05 21:21:41 received: From SERVER: You are the only user of chat. Waiting for another users... :))
+2023-03-05 21:21:46 sent: exit
+2023-03-05 21:21:46 END-SESSION signal send
+2023-03-05 21:21:46 received: From SERVER: Goodbye, xxxxx! See you later
+
+2023-03-05 21:22:08 Start session
+2023-03-05 21:22:08 received: From SERVER: You are successfully connect to server
+2023-03-05 21:22:08 received: From SERVER: Please write your name
+
+2023-03-05 21:22:14 Start session
+2023-03-05 21:22:14 received: From SERVER: You are successfully connect to server
+2023-03-05 21:22:14 received: From SERVER: Please write your name

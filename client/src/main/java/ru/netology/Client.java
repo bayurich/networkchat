@@ -12,11 +12,13 @@ public class Client extends Thread {
     static AtomicBoolean flag = new AtomicBoolean(true);
     String host;
     int port;
+    String logPath;
     static FileWriter writer;
 
-    public Client(String host, int port) {
+    public Client(String host, int port, String logPath) {
         this.host = host;
         this.port = port;
+        this.logPath = logPath;
     }
 
     @Override
@@ -31,9 +33,9 @@ public class Client extends Thread {
             new Thread(clientRead(clientSocket)).start();
             new Thread(clientWrite(clientSocket)).start();
         } catch (IOException e) {
-            log("IOException: " +e.getMessage());
+            log("IOException: " + e.getMessage());
         } catch (Exception e) {
-            log("Client socket error: " +e.getMessage());
+            log("Client socket error: " + e.getMessage());
         }
     }
 
